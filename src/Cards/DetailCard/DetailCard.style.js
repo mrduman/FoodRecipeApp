@@ -38,11 +38,15 @@ export default StyleSheet.create ({
         
         margin : 2,
         backgroundColor : '#e0e0e0',
+        
                 
     },
     text : {
         fontSize : 17,
-        color : 'black'
+        color : 'black',
+        padding : 5,
+        lineHeight : 28,
+        top : 10
         
     },
     link : {
