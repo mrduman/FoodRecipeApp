@@ -2,11 +2,13 @@ import React from 'react';
 import { FlatList, View } from 'react-native';
 import Config from 'react-native-config';
 import CategoryCard from '../../Cards/CategoryCard/CategoryCard';
+import Loading from '../../components/Loading';
+import Error from '../../components/Error';
 import useFetch from '../../hooks/useFetch';
 
 export default function Category({ navigation }) {
 
-    const { data } = useFetch(Config.API_URL)
+    const { data, loading , error } = useFetch(Config.API_URL)
 
     const selectHandleCategory = (strCategory) => { navigation.navigate('MealsPage', { strCategory }) }
 
@@ -17,6 +19,13 @@ export default function Category({ navigation }) {
         />
 
     )
+
+    if(loading) {
+         return <Loading/>
+    }
+    if(error) {
+        return <Error/>
+    }
 
     return (
 

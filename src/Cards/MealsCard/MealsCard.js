@@ -1,17 +1,19 @@
 import React from "react";
-import { View , Text, Image} from "react-native";
+import { View, Text, Image, TouchableWithoutFeedback } from "react-native";
 import styles from './MealsCard.style'
 
-export default function MealsCard({meal}) {
+export default function MealsCard({ meal, onSelect }) {
 
-    
-    
-    return(
-        <View style = {styles.container}>
-            <Image style = {styles.image} source = {{uri : meal.strMealThumb}} />
-            <View style = {styles.inner_container}>
-            <Text style = {styles.text} >{meal.strMeal}</Text>
-        </View>
-        </View>
+
+
+    return (
+        <TouchableWithoutFeedback onPress={onSelect}>
+            <View style={styles.container}>
+                <View style={styles.inner_container}>
+                    <Image style={styles.image} source={{ uri: meal.strMealThumb }} />
+                    <Text style={styles.text} >{meal.strMeal}</Text>
+                </View>
+            </View>
+        </TouchableWithoutFeedback>
     )
 }
